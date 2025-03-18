@@ -7,18 +7,22 @@ namespace Topic_1_7_Summative
         static void Main(string[] args)
         {
             Random generator = new Random();
-            int randNum;
-            string guess;
+            int randNum, userBank, userBet;
+            string guess, choise;
+            bool done = false;
 
+            userBank = 5;
 
             Console.WriteLine("Hello and welcome to my rock paper scissors game! :)");
             Console.WriteLine();
             Console.WriteLine("Press Enter to Continue");
             Console.ReadLine();
             Console.Clear();
-            Console.WriteLine("This will include standard rules and you have to win and if you lose so many times, you have to restart");
+            Console.WriteLine("This will include standard rules for rock paper scissors.");
             Console.WriteLine();
-            Console.WriteLine("Your guesses will be numbers from 1 - 3: 1 is rock 2 is paper and 3 is scissors.");
+            Console.WriteLine("You will go against a computer and you will bet a certain amount each round and if you lose you get nothing but if you win you get what you bet back and if you tie, you dont lose or gain what you bet.");
+            Console.WriteLine();
+            Console.WriteLine("You will start with 5 dollars in your bank to start you can use to bet and you have to bet something. It can't be nothing");
             Console.WriteLine();
             Console.WriteLine("Now without more delay, lets start the game");
             Console.WriteLine();
@@ -26,46 +30,85 @@ namespace Topic_1_7_Summative
             Console.ReadLine();
             Console.Clear();
             //Round 1 Below
-            randNum = generator.Next(1, 4);
-            Console.WriteLine("Round 1:");
+            Console.WriteLine("let the games begin!:");
             Console.WriteLine("==============");
             Console.WriteLine();
-            Console.WriteLine("tHE COMPUTER HAS mADE ITS CHOICE.");
+            Console.WriteLine("The computer has made it's choice.");
             Console.WriteLine();
-            Console.WriteLine("Now what is your choice (rock, paper or scissors)? ");
+            Console.Write("Now what is your choice (rock, paper or scissors)? ");
             // 1 - Rock
             // 2 - Paper
             // 3 = Scissors
             Console.WriteLine();
             guess = Console.ReadLine().ToLower();
             Console.WriteLine();
-            
-            if (guess == "scissors")
+            while (!done)
             {
-                if (randNum == 1)
-                {
-                    Console.WriteLine("The computer chose Rock!!");
-                    Console.WriteLine("You won! As we know, paper beats rock");
-                }
-                else if (randNum == 2)
-                {
+                randNum = generator.Next(1, 4);
 
-
+                if (guess == "paper")
+                {
+                    if (randNum == 1)
+                    {
+                        Console.WriteLine("The computer chose Rock!!");
+                        Console.WriteLine("You won! As we know, paper beats rock.");
+                        done = true;
+                    }
+                    else if (randNum == 2)
+                    {
+                        Console.WriteLine("The computer chose paper");
+                        Console.WriteLine("You tied the computer, As we know, paper can't beat paper.");
+                    }
+                    else if (randNum == 3)
+                    {
+                        Console.WriteLine("The computer chose scissors");
+                        Console.WriteLine("You lose! As we know, scissors beats paper.");
+                    }
                 }
-                
-            }
-            else if (guess == 3 && randNum == 2)
-            {
-                Console.WriteLine("You got it right! " + "The number you guessed is " + guess + " And the random number is " + randNum + " And as we know, scissors beats paper");
-            }
-            else if (guess == 1 && randNum == 3)
-            {
-                Console.WriteLine("You got it right! " + "The number you guessed is " + guess + " and the random number is " + randNum + " and as we know, rock beats scissors.");
-            }
-            else
-            {
-                Console.WriteLine("You got it wrong! " + "The number you guessed is " + guess + " and the random num is " + randNum + " and as we know, your guess doesnt win against the random number");
+                else if (guess == "rock")
+                {
+                    if (randNum == 1)
+                    {
+                        Console.WriteLine("The computer chose rock!!");
+                        Console.WriteLine("You tied! As we know rock can't beat rock.");
+                    }
+                    else if (randNum == 2)
+                    {
+                        Console.WriteLine("The computer chose paper!!");
+                        Console.WriteLine("You lose! As we know, paper beats rock.");
+                    }
+                    else if (randNum == 3)
+                    {
+                        Console.WriteLine("The computer chose scissors!!");
+                        Console.WriteLine("You won! As we know, rock beats scissors.");
+                        done = true;
+                    }
+                }
+                else if (guess == "scissors")
+                {
+                    if (randNum == 1)
+                    {
+                        Console.WriteLine("The computer chose rock!!");
+                        Console.WriteLine("You lose! As we know, rock beats scissors.");
+                    }
+                    else if (randNum == 2)
+                    {
+                        Console.WriteLine("The computer chose paper!!");
+                        Console.WriteLine("You won! As we know, scissors beats paper.");
+                        done = true;
+                    }
+                    else if (randNum == 3)
+                    {
+                        Console.WriteLine("The computer chose scissors!!");
+                        Console.WriteLine("You tied! As we know, scissors can't beat scissors.");
+                    }
+                }
+                Console.WriteLine();
+                Console.WriteLine("Would you like to quit or keep going?");
+                Console.WriteLine();
+                Console.Write("Your guess here: ");
+                choise = Console.ReadLine().ToLower();
             }
         }
-    }
-}
+     }
+ }
