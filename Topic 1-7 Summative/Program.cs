@@ -20,7 +20,7 @@ namespace Topic_1_7_Summative
             Console.WriteLine();
             Console.WriteLine("You will go against a computer and you will bet a certain amount each round and if you lose you get nothing but if you win you get what you bet back and if you tie, you dont lose or gain what you bet.");
             Console.WriteLine();
-            Console.WriteLine("You will start with 5 dollars in your bank to start you can use to bet and you have to bet something. It can't be nothing");
+            Console.WriteLine("You will start with 5 dollars in your wallet to start and you bet 1 dollar per round. You can't bet nothing and you lose when your wallet hits 0.");
             Console.WriteLine();
             Console.WriteLine("Now without more delay, lets start the game");
             Console.WriteLine();
@@ -43,7 +43,6 @@ namespace Topic_1_7_Summative
                 // 1 - Rock
                 // 2 - Paper
                 // 3 = Scissors
-                Console.WriteLine();
                 guess = Console.ReadLine().ToLower();
                 Console.WriteLine();
 
@@ -53,6 +52,7 @@ namespace Topic_1_7_Summative
                     {
                         Console.WriteLine("The computer chose Rock!!");
                         Console.WriteLine("You won! As we know, paper beats rock.");
+                        wallet = wallet + 1;
                     }
                     else if (randNum == 2)
                     {
@@ -63,6 +63,7 @@ namespace Topic_1_7_Summative
                     {
                         Console.WriteLine("The computer chose scissors");
                         Console.WriteLine("You lose! As we know, scissors beats paper.");
+                        wallet = wallet - 1;
                     }
                 }
                 else if (guess == "rock")
@@ -76,11 +77,13 @@ namespace Topic_1_7_Summative
                     {
                         Console.WriteLine("The computer chose paper!!");
                         Console.WriteLine("You lose! As we know, paper beats rock.");
+                        wallet = wallet - 1;
                     }
                     else if (randNum == 3)
                     {
                         Console.WriteLine("The computer chose scissors!!");
                         Console.WriteLine("You won! As we know, rock beats scissors.");
+                        wallet = wallet + 1;
                     }
                 }
                 else if (guess == "scissors")
@@ -89,11 +92,13 @@ namespace Topic_1_7_Summative
                     {
                         Console.WriteLine("The computer chose rock!!");
                         Console.WriteLine("You lose! As we know, rock beats scissors.");
+                        wallet = wallet - 1;
                     }
                     else if (randNum == 2)
                     {
                         Console.WriteLine("The computer chose paper!!");
                         Console.WriteLine("You won! As we know, scissors beats paper.");
+                        wallet = wallet + 1;
                     }
                     else if (randNum == 3)
                     {
@@ -102,7 +107,7 @@ namespace Topic_1_7_Summative
                     }
                 }
                 Console.WriteLine();
-                Console.WriteLine("Type 'y' to play again");
+                Console.WriteLine("Type 'y' to play again and press 'Enter' if you want to quit");
                 Console.WriteLine();
                 choise = Console.ReadLine().ToLower();
                 if (choise != "y")
