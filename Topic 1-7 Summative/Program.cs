@@ -7,11 +7,9 @@ namespace Topic_1_7_Summative
         static void Main(string[] args)
         {
             Random generator = new Random();
-            int randNum, userBank, userBet;
+            int randNum, wallet, userBet;
             string guess, choise;
             bool done = false;
-
-            userBank = 5;
 
             Console.WriteLine("Hello and welcome to my rock paper scissors game! :)");
             Console.WriteLine();
@@ -33,18 +31,21 @@ namespace Topic_1_7_Summative
             Console.WriteLine("let the games begin!:");
             Console.WriteLine("==============");
             Console.WriteLine();
-            Console.WriteLine("The computer has made it's choice.");
-            Console.WriteLine();
-            Console.Write("Now what is your choice (rock, paper or scissors)? ");
-            // 1 - Rock
-            // 2 - Paper
-            // 3 = Scissors
-            Console.WriteLine();
-            guess = Console.ReadLine().ToLower();
-            Console.WriteLine();
+            
             while (!done)
             {
+                wallet = 5;
                 randNum = generator.Next(1, 4);
+                Console.WriteLine();
+                Console.WriteLine("The computer has made it's choice.");
+                Console.WriteLine();
+                Console.Write("Now what is your choice (rock, paper or scissors)? ");
+                // 1 - Rock
+                // 2 - Paper
+                // 3 = Scissors
+                Console.WriteLine();
+                guess = Console.ReadLine().ToLower();
+                Console.WriteLine();
 
                 if (guess == "paper")
                 {
@@ -52,7 +53,6 @@ namespace Topic_1_7_Summative
                     {
                         Console.WriteLine("The computer chose Rock!!");
                         Console.WriteLine("You won! As we know, paper beats rock.");
-                        done = true;
                     }
                     else if (randNum == 2)
                     {
@@ -81,7 +81,6 @@ namespace Topic_1_7_Summative
                     {
                         Console.WriteLine("The computer chose scissors!!");
                         Console.WriteLine("You won! As we know, rock beats scissors.");
-                        done = true;
                     }
                 }
                 else if (guess == "scissors")
@@ -95,7 +94,6 @@ namespace Topic_1_7_Summative
                     {
                         Console.WriteLine("The computer chose paper!!");
                         Console.WriteLine("You won! As we know, scissors beats paper.");
-                        done = true;
                     }
                     else if (randNum == 3)
                     {
@@ -104,10 +102,14 @@ namespace Topic_1_7_Summative
                     }
                 }
                 Console.WriteLine();
-                Console.WriteLine("Would you like to quit or keep going?");
+                Console.WriteLine("Type 'y' to play again");
                 Console.WriteLine();
-                Console.Write("Your guess here: ");
                 choise = Console.ReadLine().ToLower();
+                if (choise != "y")
+                {
+                    Console.WriteLine("Thank you and have a nice day! :)");
+                    done = true;
+                }
             }
         }
      }
