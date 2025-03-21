@@ -13,9 +13,7 @@ namespace Topic_1_7_Summative
             bool doneBet = false;
             
             Console.CursorVisible = false;
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.ForegroundColor = ConsoleColor.DarkGray;
 
             Console.WriteLine("Hello and welcome to my rock paper scissors game! :)");
             Console.WriteLine();
